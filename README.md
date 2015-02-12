@@ -4,6 +4,7 @@ You can find a list of documents for Red Hat products in https://docs.redhat.com
 .
 # How to use
 To download all the documents of RHEL in PDF format:
+
 `./fetch_rh_docs.py -u USERNAME --pdf https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/`
 
 USERNAME is your Red Hat Network / Customer Portal account.

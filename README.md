@@ -12,8 +12,8 @@ You might be prompted to input password of the account when you try to download 
 Once you input your password, it is stored in Python Keyring fascility. That is, the password would be stored in Gnome Keyring on Linux box or Keychain on Mac OS X.
 
 # Depends
-* Python libraries: lxml, keyring
-* HTML to PDF converter: wkhtmltopdf
+* Python libraries: [lxml](http://lxml.de/), [keyring](https://pypi.python.org/pypi/keyring)
+* HTML to PDF converter: [wkhtmltopdf](http://wkhtmltopdf.org)
 
 # Tested Environments
 * Mac OS X 10.10 Yosemite

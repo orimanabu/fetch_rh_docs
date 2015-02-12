@@ -11,7 +11,8 @@ from lxml import html
 from pprint import pprint
 import keyring
 
-top_url = 'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html'
+top_url = 'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/'
+top_url = 'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/'
 
 def get_top_page(session, url):
     res = session.get(url)
@@ -101,15 +102,11 @@ Detailed options -h or --help'''.format(__file__)
     print "(debug) %s: %s" % ('external_link', args.external_link)
     print "(debug) %s: %s" % ('url', args.url)
     if args.url is None:
-        parser.print_help()
-        sys.exit()
+        args.url = top_url
     return args
 
 def main():
     args = parse_args()
-    #print "top_url:", top_url
-    #print "url:", args.url
-
     session = requests.Session()
     content = get_top_page(session, args.url)
     #print content

@@ -13,7 +13,6 @@ import keyring
 
 top_url = 'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html'
 session = requests.Session()
-args = None
 
 def get_top_page(url):
     s = session
@@ -30,7 +29,7 @@ def get_kb_urls(content):
     urls = [elem.attrib['href'].strip() for elem in tree.xpath('//a[@class="external"]')]
     return urls
 
-def get_kb_content(url):
+def get_kb_content(url, username, password):
     s = session
     res = s.get(url)
     #print "*", res.url
@@ -58,13 +57,9 @@ def get_kb_content(url):
     data = dict([(elem.attrib['name'], elem.attrib['value']) for elem in tree.xpath('//form[@id="login_form"]')[0].xpath('./*/*/input')])
 
     print "** This page requires RHN login."
-    if args.username:
-        username = args.username
-    else:
+    if not username:
         username = raw_input('    username: ')
-    if args.password:
-        password = args.password
-    else:
+    if not password:
         password = keyring.get_password('fetch_rhn_docs', username)
         if not password:
             password = getpass('    password: ')
@@ -114,7 +109,6 @@ Detailed options -h or --help'''.format(__file__)
     return args
 
 def main():
-    global args
     global top_url
     args = parse_args()
     #print "top_url:", top_url
@@ -140,7 +134,7 @@ def main():
             print url
             if args.show_flag:
                 continue
-            title, content = get_kb_content(url)
+            title, content = get_kb_content(url, args.username, args.password)
             print "  title:", title
             print "  * Downloading..."
             f = open(title + '.html', 'w')

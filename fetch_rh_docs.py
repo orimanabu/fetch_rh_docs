@@ -14,7 +14,7 @@ import keyring
 top_url = 'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/'
 top_url = 'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/'
 
-def get_top_page(session, url):
+def fetch_top_page(session, url):
     res = session.get(url)
     return res.content
 
@@ -28,7 +28,7 @@ def get_kb_urls(content):
     urls = [elem.attrib['href'].strip() for elem in tree.xpath('//a[@class="external"]')]
     return urls
 
-def get_kb_content(session, url, username, password):
+def fetch_kb_content(session, url, username, password):
     res = session.get(url)
     #print "*", res.url
     tree = html.fromstring(res.content)
@@ -108,7 +108,7 @@ Detailed options -h or --help'''.format(__file__)
 def main():
     args = parse_args()
     session = requests.Session()
-    content = get_top_page(session, args.url)
+    content = fetch_top_page(session, args.url)
     #print content
 
     if args.pdf:
@@ -128,7 +128,7 @@ def main():
             print url
             if args.show_flag:
                 continue
-            title, content = get_kb_content(session, url, args.username, args.password)
+            title, content = fetch_kb_content(session, url, args.username, args.password)
             print "  title:", title
             print "  * Downloading..."
             f = open(title + '.html', 'w')

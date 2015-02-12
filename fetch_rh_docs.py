@@ -109,7 +109,6 @@ Detailed options -h or --help'''.format(__file__)
     return args
 
 def main():
-    global top_url
     args = parse_args()
     #print "top_url:", top_url
     #print "url:", args.url

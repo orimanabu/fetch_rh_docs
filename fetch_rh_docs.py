@@ -12,11 +12,9 @@ from pprint import pprint
 import keyring
 
 top_url = 'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html'
-session = requests.Session()
 
-def get_top_page(url):
-    s = session
-    res = s.get(url)
+def get_top_page(session, url):
+    res = session.get(url)
     return res.content
 
 def get_pdf_urls(content):
@@ -29,9 +27,8 @@ def get_kb_urls(content):
     urls = [elem.attrib['href'].strip() for elem in tree.xpath('//a[@class="external"]')]
     return urls
 
-def get_kb_content(url, username, password):
-    s = session
-    res = s.get(url)
+def get_kb_content(session, url, username, password):
+    res = session.get(url)
     #print "*", res.url
     tree = html.fromstring(res.content)
     login_elem = tree.xpath('//div[@class="messages warning entitlement-message"]')
@@ -40,7 +37,7 @@ def get_kb_content(url, username, password):
     login_url = [elem.attrib['href'] for elem in login_elem[0].xpath('./*/a') if 'login' in elem.attrib['href']][0]
     print '  login_url:', login_url
 
-    res = s.get(login_url)
+    res = session.get(login_url)
     #print "###1"
     #print "*", res.url
     #print res.content
@@ -48,7 +45,7 @@ def get_kb_content(url, username, password):
     action = tree.xpath('//form')[0].attrib['action']
     data = dict([(elem.attrib['name'], elem.attrib['value']) for elem in tree.xpath('//form')[0].xpath('./input')])
 
-    res = s.post(action, data=data)
+    res = session.post(action, data=data)
     #print "###2"
     #print "*", res.url
     #print res.content
@@ -67,7 +64,7 @@ def get_kb_content(url, username, password):
 
     data['j_username'] = username
     data['j_password'] = password
-    res = s.post(action, data=data)
+    res = session.post(action, data=data)
     #print "###3"
     #print "*", res.url
     #print res.content
@@ -75,7 +72,7 @@ def get_kb_content(url, username, password):
     action = tree.xpath('//form')[0].attrib['action']
     data = dict([(elem.attrib['name'], elem.attrib['value']) for elem in tree.xpath('//form')[0].xpath('./input')])
 
-    res = s.post(action, data=data)
+    res = session.post(action, data=data)
     #print "###4"
     #print "*", res.url
     #print res.content
@@ -113,7 +110,8 @@ def main():
     #print "top_url:", top_url
     #print "url:", args.url
 
-    content = get_top_page(args.url)
+    session = requests.Session()
+    content = get_top_page(session, args.url)
     #print content
 
     if args.pdf:
@@ -133,7 +131,7 @@ def main():
             print url
             if args.show_flag:
                 continue
-            title, content = get_kb_content(url, args.username, args.password)
+            title, content = get_kb_content(session, url, args.username, args.password)
             print "  title:", title
             print "  * Downloading..."
             f = open(title + '.html', 'w')

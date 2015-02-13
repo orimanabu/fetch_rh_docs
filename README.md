@@ -22,6 +22,7 @@ That is, the password would be stored in *Gnome Keyring* on Linux Desktop or *Ke
 # Tested Environments
 * Mac OS X 10.10 Yosemite + Keychain Access.app
 * Fedora 21 + Gnome Keyring
+* RHEL7.0 + encrypted text
 
 # Note
 If you encounter `ValueError: Missing environment variable:GOOGLE_KEYRING_USER` error storing your password in Fedora,

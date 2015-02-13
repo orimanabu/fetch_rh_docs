@@ -3,6 +3,8 @@ This script fetches documents in Red Hat product pages.
 You can find a list of documents for Red Hat products in https://docs.redhat.com/
 .
 # How to use
+
+## Basic use case
 To download all the documents of RHEL in PDF format:
 
 ```
@@ -14,6 +16,35 @@ You might be prompted to input password of the account when you try to download 
 
 Once you input your password, it is stored in Python Keyring fascility.
 That is, the password would be stored in *Gnome Keyring* on Linux Desktop or *Keychain Access.app* on Mac OS X.
+
+## Only listing URLs
+If you don't want to download documents but only want to get the URL list, add "--list" option.
+
+```
+$ ./fetch_rh_docs.py -u USERNAME --pdf --list https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/
+```
+
+## Getting Knowledge Base
+Some products have links to Knowledge Base pages. If you get URLs of the KB pages, use "--kb" option.
+
+```
+$ ./fetch_rh_docs.py -u USERNAME --kb --list https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/
+```
+
+You can use "--pdf" and "--kb" simultaneously.
+
+```
+$ ./fetch_rh_docs.py -u USERNAME --pdf --kb --list https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/
+```
+
+## URL filtering
+If you filter URLs with regular expressions, use "--filter *REGEXP*" option. You can add this option multiple times.
+
+E.g. To get 'Cluster' related manuals of RHEL5, run the script like this:
+
+```
+$ ./fetch_rh_docs.py -u USERNAME --pdf --filter '\/5\/' --filter 'Cluster' https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/
+```
 
 # Depends
 * Python libraries: [lxml](http://lxml.de/), [keyring](https://pypi.python.org/pypi/keyring)

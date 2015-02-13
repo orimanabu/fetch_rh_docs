@@ -18,14 +18,22 @@ def fetch_top_page(session, url):
     res = session.get(url)
     return res.content
 
-def parse_pdf_urls(content):
+def parse_pdf_urls(content, filters):
     tree = html.fromstring(content)
     urls = [elem.attrib['href'].strip().replace('/site', 'https://access.redhat.com') for elem in tree.xpath('//a[.="PDF"]')]
+    if filters:
+        for f in filters:
+            ro = re.compile(f)
+            urls = [url for url in urls if ro.search(url)]
     return urls
 
-def parse_kb_urls(content):
+def parse_kb_urls(content, filters):
     tree = html.fromstring(content)
     urls = [elem.attrib['href'].strip() for elem in tree.xpath('//a[@class="external"]')]
+    if filters:
+        for f in filters:
+            ro = re.compile(f)
+            urls = [url for url in urls if ro.search(url)]
     return urls
 
 def fetch_kb_content(session, url, username, password):
@@ -92,6 +100,7 @@ Detailed options -h or --help'''.format(__file__)
     #parser.add_argument('-S', '--single-html', action='store_true', dest='single_html', help='download single html files')
     parser.add_argument('-k', '--kb', action='store_true', dest='kb', help='download kb')
     parser.add_argument('-c', '--convert-to-pdf', action='store_true', dest='convert_to_pdf', help='convert html to pdf')
+    parser.add_argument('-f', '--filter', action='append', dest='filter', help='regexp to filter url.')
     parser.add_argument('url', nargs='?')
     args = parser.parse_args()
     if args.url is None:
@@ -104,6 +113,7 @@ Detailed options -h or --help'''.format(__file__)
     #print "(debug) %s: %s" % ('single_html', args.single_html)
     print "(debug) %s: %s" % ('kb', args.kb)
     print "(debug) %s: %s" % ('convert_to_pdf', args.convert_to_pdf)
+    print "(debug) %s: %s" % ('filter', args.filter)
     print "(debug) %s: %s" % ('url', args.url)
     return args
 
@@ -115,7 +125,7 @@ def main():
 
     if args.pdf:
         print "# pdf"
-        for url in parse_pdf_urls(content):
+        for url in parse_pdf_urls(content, args.filter):
             print url
             if args.list_only:
                 continue
@@ -126,7 +136,7 @@ def main():
 
     if args.kb:
         print "# kb"
-        for url in parse_kb_urls(content):
+        for url in parse_kb_urls(content, args.filter):
             print url
             if args.list_only:
                 continue

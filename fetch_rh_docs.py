@@ -18,12 +18,12 @@ def fetch_top_page(session, url):
     res = session.get(url)
     return res.content
 
-def get_pdf_urls(content):
+def parse_pdf_urls(content):
     tree = html.fromstring(content)
     urls = [elem.attrib['href'].strip().replace('/site', 'https://access.redhat.com') for elem in tree.xpath('//a[.="PDF"]')]
     return urls
 
-def get_kb_urls(content):
+def parse_kb_urls(content):
     tree = html.fromstring(content)
     urls = [elem.attrib['href'].strip() for elem in tree.xpath('//a[@class="external"]')]
     return urls
@@ -113,7 +113,7 @@ def main():
 
     if args.pdf:
         print "# pdf"
-        for url in get_pdf_urls(content):
+        for url in parse_pdf_urls(content):
             print url
             if args.show_flag:
                 continue
@@ -124,7 +124,7 @@ def main():
 
     if args.external_link:
         print "# kb"
-        for url in get_kb_urls(content):
+        for url in parse_kb_urls(content):
             print url
             if args.show_flag:
                 continue

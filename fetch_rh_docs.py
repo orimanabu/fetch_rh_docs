@@ -11,6 +11,7 @@ from lxml import html
 from pprint import pprint
 import keyring
 
+product_index = 'http://docs.redhat.com/'
 top_url = 'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/'
 top_url = 'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/'
 
@@ -88,6 +89,11 @@ def fetch_kb_content(session, url, username, password):
     tree = html.fromstring(res.content)
     return tree.xpath('//title')[0].text, res.content
 
+def get_all_product_urls(session, product_index):
+    res = session.get(product_index)
+    tree = html.fromstring(res.content)
+    return [(elem.attrib['href'], elem.text) for elem in tree.xpath('//h3[@class="headerAccent"]/../ul/li/a')]
+
 def parse_args():
     desc = u'''{0} [Args] [Options]
 Detailed options -h or --help'''.format(__file__)
@@ -101,6 +107,7 @@ Detailed options -h or --help'''.format(__file__)
     parser.add_argument('-k', '--kb', action='store_true', dest='kb', help='download kb')
     parser.add_argument('-c', '--convert-to-pdf', action='store_true', dest='convert_to_pdf', help='convert html to pdf')
     parser.add_argument('-f', '--filter', action='append', dest='filter', help='regexp to filter url.')
+    parser.add_argument('--all-products', action='store_true', dest='all_products', help='traverse all products')
     parser.add_argument('url', nargs='?')
     args = parser.parse_args()
     if args.url is None:
@@ -114,44 +121,53 @@ Detailed options -h or --help'''.format(__file__)
     print "(debug) %s: %s" % ('kb', args.kb)
     print "(debug) %s: %s" % ('convert_to_pdf', args.convert_to_pdf)
     print "(debug) %s: %s" % ('filter', args.filter)
+    print "(debug) %s: %s" % ('all_products', args.all_products)
     print "(debug) %s: %s" % ('url', args.url)
     return args
 
 def main():
     args = parse_args()
     session = requests.Session()
-    content = fetch_top_page(session, args.url)
-    #print content
 
-    if args.pdf:
-        print "# pdf"
-        for url in parse_pdf_urls(content, args.filter):
-            print url
-            if args.list_only:
-                continue
-            print "  * Downloading..."
-            cmd = "/usr/bin/curl -O '%s' > /dev/null 2>&1" % url
-            #print "      ", cmd
-            subprocess.call(cmd, shell=True)
+    if args.all_products:
+        product_urls = get_all_product_urls(session, product_index)
+    else:
+        product_urls = [(args.url, '(specified in command line)')]
 
-    if args.kb:
-        print "# kb"
-        for url in parse_kb_urls(content, args.filter):
-            print url
-            if args.list_only:
-                continue
-            title, content = fetch_kb_content(session, url, args.username, args.password)
-            print "  title:", title
-            print "  * Downloading..."
-            f = open(title + '.html', 'w')
-            f.write(content)
-            f.close()
-            if args.convert_to_pdf:
-                print "  * Converting to pdf..."
-                cmd = "/usr/local/bin/wkhtmltopdf --load-error-handling ignore --load-media-error-handling ignore --disable-external-links '%s' '%s' > /dev/null 2>&1" % (title + '.html', title + '.pdf')
-                #subprocess.call(cmd.strip().split(" "))
+    for url, title in product_urls:
+        print "# %s: %s" % (title, url)
+        content = fetch_top_page(session, args.url)
+        #print content
+
+        if args.pdf:
+            print "## pdf"
+            for url in parse_pdf_urls(content, args.filter):
+                print url
+                if args.list_only:
+                    continue
+                print "  * Downloading..."
+                cmd = "/usr/bin/curl -O '%s' > /dev/null 2>&1" % url
                 #print "      ", cmd
                 subprocess.call(cmd, shell=True)
+
+        if args.kb:
+            print "## kb"
+            for url in parse_kb_urls(content, args.filter):
+                print url
+                if args.list_only:
+                    continue
+                title, content = fetch_kb_content(session, url, args.username, args.password)
+                print "  title:", title
+                print "  * Downloading..."
+                f = open(title + '.html', 'w')
+                f.write(content)
+                f.close()
+                if args.convert_to_pdf:
+                    print "  * Converting to pdf..."
+                    cmd = "/usr/local/bin/wkhtmltopdf --load-error-handling ignore --load-media-error-handling ignore --disable-external-links '%s' '%s' > /dev/null 2>&1" % (title + '.html', title + '.pdf')
+                    #subprocess.call(cmd.strip().split(" "))
+                    #print "      ", cmd
+                    subprocess.call(cmd, shell=True)
 
 if __name__ == '__main__':
     main()

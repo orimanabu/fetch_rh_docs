@@ -1,0 +1,2826 @@
+
+<!DOCTYPE html>
+<html class="chrometwo bootstrap3"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Red Hat Enterprise Linux OpenStack Platform</title>
+<link rel="stylesheet" href="/site/documentation/chrome.css" type="text/css" />
+<link rel="stylesheet" href="/site/documentation/splash.css" type="text/css" />
+<link rel="stylesheet" href="/site/documentation/site_overrides.css" type="text/css" />
+<link href="/chrome_themes/chrometwo/chrometwo.css" rel="stylesheet" />
+<meta name="generator" content="publican " />
+<script type="text/javascript" src="/site/documentation/en-US/labels.js"></script>
+<script type="text/javascript" src="/site/documentation/toc.js"></script>
+<script type="text/javascript" src="/webassets/avalon/j/lib/require.js"></script>
+<script type="text/javascript">
+    lang_menu_2_div = '<div id="left-menu"><div id="lang_menu_2"  onmouseover="work=1; expand_menu(\'lang_menu_list\');" onmouseout="work=1; retract_menu(\'lang_menu_list\');">';
+    lang_menu_2_div += '<div>English</div>';
+    lang_menu_2_div += '<ul id="lang_menu_list" class="hidden">';
+    lang_menu_2_div += '<li><a href="/site/documentation/as-IN/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">অসমীয়া</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/bn-IN/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">বাংলা</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/de-DE/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">Deutsch</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">English</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/es-ES/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">Español</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/fr-FR/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">Français</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/gu-IN/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">ગુજરાતી</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/hi-IN/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">हिन्दी</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/it-IT/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">Italiano</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/ja-JP/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">日本語</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/kn-IN/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">ಕನ್ನಡ</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/ko-KR/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">한국어</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/ml-IN/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">മലയാളം</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/mr-IN/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">मराठी</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/or-IN/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">ଓଡ଼ିଆ</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/pa-IN/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">ਪੰਜਾਬੀ</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/pt-BR/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">Português Brasileiro</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/ru-RU/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">Русский</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/si-LK/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">සිංහල</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/ta-IN/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">தமிழ்</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/te-IN/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">తెలుగు</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/zh-CN/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">简体中文</a></li>';
+    lang_menu_2_div += '<li><a href="/site/documentation/zh-TW/Red_Hat_Enterprise_Linux_OpenStack_Platform/index.html">繁體中文</a></li>';
+    lang_menu_2_div += '</ul></div></div>'
+
+    var current_product = "Red_Hat_Enterprise_Linux_OpenStack_Platform";
+    var current_version = "";
+    var current_book = "";
+
+function activateElement(elem) {
+    chrometwo_require(['jquery'], function(ajq) {
+        ajq('#' +elem).addClass('active');
+        ajq('#' +elem).removeClass('hidden');
+        ajq('#' +elem).siblings().addClass('hidden');
+        ajq('#' +elem).siblings().removeClass('active');
+    });
+}
+
+function activateElement2(elem, focus) {
+    chrometwo_require(['jquery'], function(ajq) {
+        ajq('#' +elem).addClass('active');
+        ajq('#' +elem).siblings().removeClass('active');
+        if(focus) {
+           ajq('html,body').animate({scrollTop: ajq('#' + elem).offset().top},'slow');
+        }
+    });
+}
+
+function activateParentElement(elem) {
+    chrometwo_require(['jquery'], function(ajq) {
+        ajq('#' +elem).parent().addClass('active');
+        ajq('#' +elem).parent().removeClass('hidden');
+        ajq('#' +elem).parent().siblings().addClass('hidden');
+        ajq('#' +elem).parent().siblings().removeClass('active');
+    });
+}
+
+function resetCategories(categ, vers, me) {
+    chrometwo_require(['jquery'], function(ajq) {
+        ajq('#' +categ).children().removeClass('active');
+        ajq(me).addClass('active');
+        ajq('#' +vers).children().removeClass('active');
+        ajq('#' +vers).children().removeClass('hidden');
+    });
+}
+
+function load() {
+    initializeBreadcrumbs('/site/documentation/en-US', current_product, current_version, current_book);
+    chrometwo_require(['jquery'], function(ajq) {
+        ajq(window).bind('hashchange', function() {
+            if (window.location.hash === "") {
+                // activate the default section
+            } else {
+                //Grab what is after the # from the url bar and remove the #
+                var anchorid = window.location.hash.replace("#", "");
+                var id =  anchorid;
+                if (anchorid.match("_")) {
+                    id = id.replace(/_.*/g, '');
+                }
+                activateElement2(id + '-selector');
+                activateElement(id + '-categories');
+                activateElement(id);
+                if (anchorid.match("_")) {
+                    activateElement2(anchorid, 1);
+                }
+            }
+        });
+        ajq(window).trigger('hashchange');
+    });
+}
+</script>
+</head>
+<body class="chrometwo menu" onload="load();" >
+<div id="chrometwo">
+    <div id="main">
+        <div id="wrapper">
+            <script type="text/javascript">
+                chrometwo_require(["jquery"], function(ajq) {
+                    runAnalytics(ajq);
+                });
+            </script>
+
+
+
+<div id="splash" class="splash">
+	<div class="article" lang="en-US" xml:lang="en-US"><div class="titlepage"><div><div><h1 class="title producttitle"><a id="idm2540856"></a>Red Hat Enterprise Linux OpenStack Platform</h1></div></div></div><a class="indexterm" id="idm3016368"></a></div>
+
+</div>
+<div class="product_bottom_box">
+<div class="prod-nav">
+
+	<div class="bottom_versions_list_label"><h2>Select a version</h2></div>
+	<div class="bottom_versions_list">
+		<span class="active" id="6-selector" onclick="activateElement('6');activateElement2('6-selector');activateElement('6-categories');return false;">6</span>
+		<span  id="5-selector" onclick="activateElement('5');activateElement2('5-selector');activateElement('5-categories');return false;">5</span>
+		<span  id="4-selector" onclick="activateElement('4');activateElement2('4-selector');activateElement('4-categories');return false;">4</span>
+		<span  id="3-selector" onclick="activateElement('3');activateElement2('3-selector');activateElement('3-categories');return false;">3</span>
+		<span  id="2-selector" onclick="activateElement('2');activateElement2('2-selector');activateElement('2-categories');return false;">2</span>
+	</div>	<div class="bottom_versions_list_label"><h2>Select a category</h2></div>
+	<div class="bottom_versions_list">
+    		<div class="groups active" id="6-categories">
+			<span class="active" onclick="resetCategories('6-categories', '6', this);return false;">All</span>
+
+
+
+			<span title="Release and Technical Notes" id="6-categories-Release-Notes" onclick="activateElement2('6-categories-Release-Notes');activateParentElement('6_Release-Notes', 1);return false;">Release Notes</span>
+
+
+
+			<span title="Upgrading your OpenStack environment" id="6-categories-Upgrading" onclick="activateElement2('6-categories-Upgrading');activateParentElement('6_Upgrading', 1);return false;">Upgrading</span>
+
+
+
+			<span title="Installation and deployment" id="6-categories-Getting-Started" onclick="activateElement2('6-categories-Getting-Started');activateParentElement('6_Getting-Started', 1);return false;">Getting Started</span>
+
+
+
+			<span title="Configuration, administration, and tuning" id="6-categories-Configuration" onclick="activateElement2('6-categories-Configuration');activateParentElement('6_Configuration', 1);return false;">Configuration</span>
+
+
+
+			<span title="Detailed configuration for networking" id="6-categories-Configuration-Advanced-Networking" onclick="activateElement2('6-categories-Configuration-Advanced-Networking');activateParentElement('6_Configuration-Advanced-Networking', 1);return false;">Configuration-Advanced Networking</span>
+
+
+
+			<span title="Detailed configuration for storage" id="6-categories-Configuration-Advanced-Storage" onclick="activateElement2('6-categories-Configuration-Advanced-Storage');activateParentElement('6_Configuration-Advanced-Storage', 1);return false;">Configuration-Advanced Storage</span>
+
+
+
+			<span title="Reference documentation to supplement guide usage" id="6-categories-Reference" onclick="activateElement2('6-categories-Reference');activateParentElement('6_Reference', 1);return false;">Reference</span>
+		</div>		<div class="groups hidden" id="5-categories">
+			<span class="active" onclick="resetCategories('5-categories', '5', this);return false;">All</span>
+
+
+
+			<span title="Release and Technical Notes" id="5-categories-Release-Notes" onclick="activateElement2('5-categories-Release-Notes');activateParentElement('5_Release-Notes', 1);return false;">Release Notes</span>
+
+
+
+			<span title="Upgrading your OpenStack environment" id="5-categories-Upgrading" onclick="activateElement2('5-categories-Upgrading');activateParentElement('5_Upgrading', 1);return false;">Upgrading</span>
+
+
+
+			<span title="Installation and deployment" id="5-categories-Getting-Started" onclick="activateElement2('5-categories-Getting-Started');activateParentElement('5_Getting-Started', 1);return false;">Getting Started</span>
+
+
+
+			<span title="Configuration, administration, and tuning" id="5-categories-Configuration" onclick="activateElement2('5-categories-Configuration');activateParentElement('5_Configuration', 1);return false;">Configuration</span>
+
+
+
+			<span title="Reference documentation to supplement guide usage" id="5-categories-Reference" onclick="activateElement2('5-categories-Reference');activateParentElement('5_Reference', 1);return false;">Reference</span>
+		</div>		<div class="groups hidden" id="4-categories">
+			<span class="active" onclick="resetCategories('4-categories', '4', this);return false;">All</span>
+		</div>		<div class="groups hidden" id="3-categories">
+			<span class="active" onclick="resetCategories('3-categories', '3', this);return false;">All</span>
+		</div>		<div class="groups hidden" id="2-categories">
+			<span class="active" onclick="resetCategories('2-categories', '2', this);return false;">All</span>
+		</div>
+	</div>
+</div>
+	<div class="books">
+	<div id="6" class="bottom_versions active">
+	  <div class="grouper">
+          	
+				
+
+
+
+
+		<div class="group" id="6_Release-Notes">
+			<h2>Release Notes</h2>
+			<span>Release and Technical Notes</span>
+		</div>
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1274673">Red Hat Enterprise Linux OpenStack Platform 6 - Top New Features <span class='subtitle'>Important new features for this release.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Release_Notes/index.html">Release Notes <span class='subtitle'>Release details for Red Hat Enterprise Linux OpenStack Platform</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Release_Notes/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html-single/Release_Notes/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/epub/Release_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Release_Notes-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/pdf/Release_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Release_Notes-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Technical_Notes/index.html">Technical Notes <span class='subtitle'>Technical Notes for Red Hat Enterprise Linux OpenStack Platform and supporting packages.</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Technical_Notes/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/pdf/Technical_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Technical_Notes-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Package_Manifest/index.html">Package Manifest <span class='subtitle'>Package Listing for Red Hat Enterprise Linux OpenStack Platform 6</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Package_Manifest/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html-single/Package_Manifest/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/pdf/Package_Manifest/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Package_Manifest-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+
+
+
+
+	  </div><!-- end grouper-->
+	  <div class="grouper">
+			
+		<div class="group" id="6_Upgrading">
+			<h2>Upgrading</h2>
+			<span>Upgrading your OpenStack environment</span>
+		</div>
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1317223/">Overview of Upgrading to Red Hat Enterprise Linux OpenStack Platform 6 (Juno) <span class='subtitle'>Comprehensive overview of available methods for upgrading to Red Hat Enterprise Linux OpenStack Platform 6.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1317243">Upgrading OpenStack by Updating All Services Simultaneously <span class='subtitle'>Instructions for simultaneously upgrading all OpenStack services.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1317333">Upgrading OpenStack by Updating Each Service Individually <span class='subtitle'>Upgrade instructions that use staged outages to specific services.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1317383">Upgrading OpenStack by Updating Each Service Individually, with Live Compute <span class='subtitle'>Upgrade instructions that offer minimal downtime (using live migration for compute nodes).</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1317393">Upgrading OpenStack by Updating Each Service Individually, with Parallel Compute <span class='subtitle'>Upgrade instructions using parallel compute-node environments.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1325533">Parallel Cloud Migration for Red Hat Enterprise Linux OpenStack Platform 6 (Juno) <span class='subtitle'>Step-by-step guide to migrating Red Hat Enterprise Linux OpenStack Platform 5 (Icehouse) on RHEL 6 to Red Hat Enterprise Linux OpenStack Platform 6 on RHEL 7.</span></a>
+
+
+			</div>
+		</div>
+				
+
+
+
+
+	  </div><!-- end grouper-->
+	  <div class="grouper">
+			
+		<div class="group" id="6_Getting-Started">
+			<h2>Getting Started</h2>
+			<span>Installation and deployment</span>
+		</div>
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1337163">Capacity Planning for Red Hat Enterprise Linux OpenStack Platform <span class='subtitle'>Resource metrics to consider when planning a RHEL OpenStack deployment.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1229293">Choosing a Network Back-end for Red Hat Enterprise Linux OpenStack Platform <span class='subtitle'>Describes and provides guidance for selecting an OpenStack Networking (neutron) or OpenStack Compute Networking (nova) back end.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1140323">Evaluating OpenStack: Deployment Types and Tools <span class='subtitle'>Overview of the three Red Hat Enterprise Linux OpenStack Platform environment types and deployment tools.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1127153">Evaluating OpenStack: Single-Node Deployment <span class='subtitle'>Step-by-step guide to implementing a basic OpenStack cloud using the Packstack deployment tool.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/node/1146173/">Evaluating OpenStack: Simple Networking <span class='subtitle'>Step-by-step guide to configuring networking in a Packstack All-in-One environment.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/node/1248653/">Evaluating OpenStack: Install OpenShift on OpenStack <span class='subtitle'>Step-by-step guide for a proof-of-concept installation of OpenShift Enterprise in a Packstack-installed OpenStack environment.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Installer_and_Foreman_Guide/index.html">Deploying OpenStack: Enterprise Environments (Red Hat Enterprise Linux OpenStack Platform Installer) <span class='subtitle'>Deploying Red Hat Enterprise Linux OpenStack Platform in an enterprise environment</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Installer_and_Foreman_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html-single/Installer_and_Foreman_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/epub/Installer_and_Foreman_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Installer_and_Foreman_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/pdf/Installer_and_Foreman_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Installer_and_Foreman_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Deploying_OpenStack_Proof_of_Concept_Environments/index.html">Deploying OpenStack: Proof-of-Concept Environments (Packstack) <span class='subtitle'>Getting Started with Red Hat Enterprise Linux OpenStack Platform</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Deploying_OpenStack_Proof_of_Concept_Environments/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/pdf/Deploying_OpenStack_Proof_of_Concept_Environments/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Deploying_OpenStack_Proof_of_Concept_Environments-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Deploying_OpenStack_Learning_Environments/index.html">Deploying OpenStack: Learning Environments (Manual Setup) <span class='subtitle'>Manually installing and configuring Red Hat Enterprise Linux OpenStack Platform</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Deploying_OpenStack_Learning_Environments/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html-single/Deploying_OpenStack_Learning_Environments/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/epub/Deploying_OpenStack_Learning_Environments/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Deploying_OpenStack_Learning_Environments-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/pdf/Deploying_OpenStack_Learning_Environments/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Deploying_OpenStack_Learning_Environments-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1320563"> Deploying OpenStack in a Virtual Machine Environment Using Instack <span class='subtitle'>Procedure for configuring OpenStack in virtual machines running in a virtual host.</span></a>
+
+
+			</div>
+		</div>
+				
+
+
+
+
+	  </div><!-- end grouper-->
+	  <div class="grouper">
+			
+		<div class="group" id="6_Configuration">
+			<h2>Configuration</h2>
+			<span>Configuration, administration, and tuning</span>
+		</div>
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Administration_Guide/index.html">Administration Guide <span class='subtitle'>Managing a Red Hat Enterprise Linux OpenStack Platform environment</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Administration_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html-single/Administration_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/epub/Administration_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Administration_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/pdf/Administration_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Administration_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1249993">Launch an Instance <span class='subtitle'>Step-by-step guide to creating a new virtual machine instance.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1270363">Secure LDAP Communication for the Identity Service <span class='subtitle'>Provides three methods for securing LDAP communication using a CA certificate.</span></a>
+
+
+			</div>
+		</div>
+				
+
+
+
+
+	  </div><!-- end grouper-->
+	  <div class="grouper">
+			
+		<div class="group" id="6_Configuration-Advanced-Networking">
+			<h2>Configuration-Advanced Networking</h2>
+			<span>Detailed configuration for networking</span>
+		</div>
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1241813">Configure Load Balancing-as-a-Service (LBaaS) in OpenStack Networking <span class='subtitle'>Step-by-step guide for configuring OpenStack Networking to use LBaaS with either the Open vSwitch (OVS) or the Linux Bridge plug-in.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href=" https://access.redhat.com/articles/1324143">Configure SR-IOV Networking in Red Hat Enterprise Linux OpenStack Platform <span class='subtitle'>Step-by-step guide for configuring SR-IOV to pass a physical NIC through to a virtual instance.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/node/1229283">Configure Layer 3 High Availability for High Availability in OpenStack Networking <span class='subtitle'>Explains the role of high availability in an OpenStack Networking deployment, with implementation steps for protecting your network using Layer 3 High Availability.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1238813">Enable Firewall-as-a-Service (FWaaS) in Red Hat Enterprise Linux OpenStack Platform <span class='subtitle'>Describes the process for adding perimeter firewall management to OpenStack Networking using the FWaaS plug-in.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1311243">Manage OpenStack Networking Quotas <span class='subtitle'>Use quotas to manage a Project's usage of OpenStack Networking components.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1311203">Review OpenStack Networking port status <span class='subtitle'>How to review a router's port status (Down/Active) in OpenStack Networking.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1337153">Troubleshoot Provider Networks in Red Hat Enterprise Linux OpenStack Platform <span class='subtitle'>A methodology for troubleshooting OpenStack Networking provider networks and the wider network infrastructure.</span></a>
+
+
+			</div>
+		</div>
+				
+
+
+
+
+	  </div><!-- end grouper-->
+	  <div class="grouper">
+			
+		<div class="group" id="6_Configuration-Advanced-Storage">
+			<h2>Configuration-Advanced Storage</h2>
+			<span>Detailed configuration for storage</span>
+		</div>
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1323213">Configure Block Storage Service to Use an NFS Back-End <span class='subtitle'>Describes how to configure the Block Storage volume service to use an NFS share as a back end.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1247463">Convert VMware guests to Red Hat Enterprise Linux OpenStack Platform <span class='subtitle'>Use the virt-v2v command-line tool to retrieve, convert, and upload a VMware guest.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1319103">Use Multiple Dell EqualLogic Back Ends for OpenStack Block Storage <span class='subtitle'>Step-by-step guide to configuring OpenStack Block Storage to use multiple Dell EqualLogic SAN devices as back ends.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1319113">Use a Single Dell EqualLogic Back End for OpenStack Block Storage <span class='subtitle'>Step-by-step guide to configuring OpenStack Block Storage to use a single Dell EqualLogic SAN device as a back end.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1319123">Address Volume Size Discrepancies with Dell EqualLogic Back Ends <span class='subtitle'>Describes why Dell EqualLogic back ends and the Image service report different volume sizes, and how to work around it.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1321523">Export a Red Hat Enterprise Virtualization Virtual Machine Disk to Red Hat Enterprise Linux OpenStack Platform <span class='subtitle'>Export a Red Hat Enterprise Virtualization virtual machine disk image to the OpenStack Image Service (glance).</span></a>
+
+
+			</div>
+		</div>
+				
+
+
+
+
+	  </div><!-- end grouper-->
+	  <div class="grouper">
+			
+		<div class="group" id="6_Reference">
+			<h2>Reference</h2>
+			<span>Reference documentation to supplement guide usage</span>
+		</div>
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Command-Line_Interface_Reference_Guide/index.html">Command-Line Interface Reference <span class='subtitle'>Command-line clients for the Red Hat Enterprise Linux OpenStack Platform</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Command-Line_Interface_Reference_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html-single/Command-Line_Interface_Reference_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/pdf/Command-Line_Interface_Reference_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Command-Line_Interface_Reference_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Component_Overview/index.html">Component Overview <span class='subtitle'>Understanding OpenStack components, their functionality, and their interfaces</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Component_Overview/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html-single/Component_Overview/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/epub/Component_Overview/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Component_Overview-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/pdf/Component_Overview/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Component_Overview-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Configuration_Reference_Guide/index.html">Configuration Reference <span class='subtitle'>Configuring Red Hat Enterprise Linux OpenStack Platform environments</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html/Configuration_Reference_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/html-single/Configuration_Reference_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/6/pdf/Configuration_Reference_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-6-Configuration_Reference_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	  </div> <!-- end grouper-->
+	</div>
+	<div id="5" class="bottom_versions hidden">
+	  <div class="grouper">
+          	
+				
+
+
+
+
+		<div class="group" id="5_Release-Notes">
+			<h2>Release Notes</h2>
+			<span>Release and Technical Notes</span>
+		</div>
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1144213">Red Hat Enterprise Linux OpenStack Platform 5 - Top New Features <span class='subtitle'>Important new features for this release.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Release_Notes/index.html">Release Notes for RHEL7.0 and RHEL6.6 Release <span class='subtitle'>Release details for Red Hat Enterprise Linux OpenStack Platform 5</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Release_Notes/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html-single/Release_Notes/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/epub/Release_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Release_Notes-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/pdf/Release_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Release_Notes-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Technical_Notes/index.html">Technical Notes for RHEL7.0 Release <span class='subtitle'>Technical Notes for Red Hat Enterprise Linux OpenStack Platform and supporting packages.</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Technical_Notes/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/pdf/Technical_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Technical_Notes-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Technical_Notes_for_EL6/index.html">Technical Notes for RHEL6.6 Release <span class='subtitle'>Technical Notes for Red Hat Enterprise Linux OpenStack Platform and supporting packages.</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Technical_Notes_for_EL6/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/pdf/Technical_Notes_for_EL6/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Technical_Notes_for_EL6-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+
+
+
+
+	  </div><!-- end grouper-->
+	  <div class="grouper">
+			
+		<div class="group" id="5_Upgrading">
+			<h2>Upgrading</h2>
+			<span>Upgrading your OpenStack environment</span>
+		</div>
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1177953">Overview of Upgrading to Red Hat Enterprise Linux OpenStack Platform 5 <span class='subtitle'>Comprehensive overview of available methods for upgrading to Red Hat Enterprise Linux OpenStack Platform 5.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1168953">Upgrading OpenStack by Updating All Services Simultaneously <span class='subtitle'>Instructions for simultaneously upgrading all OpenStack services.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1168993">Upgrading OpenStack by Updating Each Service Individually <span class='subtitle'>Upgrade instructions that use staged outages to specific services.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1169003">Upgrading OpenStack by Updating Each Service Individually, with Live Compute <span class='subtitle'>Upgrade instructions that offer minimal downtime (allowing v4 compute nodes to run in parallel with v5 compute nodes).</span></a>
+
+
+			</div>
+		</div>
+				
+
+
+
+
+	  </div><!-- end grouper-->
+	  <div class="grouper">
+			
+		<div class="group" id="5_Getting-Started">
+			<h2>Getting Started</h2>
+			<span>Installation and deployment</span>
+		</div>
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1140323">Evaluating OpenStack: Deployment Types and Tools <span class='subtitle'>Overview of the three Red Hat Enterprise Linux OpenStack Platform environment types and deployment tools.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1127153">Evaluating OpenStack: Single-Node Deployment <span class='subtitle'>Step-by-step guide to implementing a basic OpenStack cloud using the PackStack deployment tool.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/node/1146173/">Evaluating OpenStack: Simple Networking <span class='subtitle'>Step-by-step guide to configuring networking in a PackStack All-in-One environment.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Installer_and_Foreman_Guide/index.html">Deploying OpenStack: Enterprise Environments (Red Hat Enterprise Linux OpenStack Platform Installer) <span class='subtitle'>Deploying Red Hat Enterprise Linux OpenStack Platform in an enterprise environment</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Installer_and_Foreman_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html-single/Installer_and_Foreman_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/epub/Installer_and_Foreman_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Installer_and_Foreman_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/pdf/Installer_and_Foreman_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Installer_and_Foreman_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Getting_Started_Guide/index.html">Deploying OpenStack: Proof-of-Concept Environments (PackStack) <span class='subtitle'>Getting Started with Red Hat Enterprise Linux OpenStack Platform</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Getting_Started_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html-single/Getting_Started_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/epub/Getting_Started_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Getting_Started_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/pdf/Getting_Started_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Getting_Started_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Installation_and_Configuration_Guide/index.html">Deploying OpenStack: Learning Environments (Manual Setup) <span class='subtitle'>Manually installing and configuring Red Hat Enterprise Linux OpenStack Platform</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Installation_and_Configuration_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html-single/Installation_and_Configuration_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/epub/Installation_and_Configuration_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Installation_and_Configuration_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/pdf/Installation_and_Configuration_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Installation_and_Configuration_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1172383">Install the Red Hat Enterprise Linux OpenStack Platform Installer using the Live CD <span class='subtitle'>Step-by-step guide to installing the RHEL-OSP installer using the live CD .iso file.</span></a>
+
+
+			</div>
+		</div>
+				
+
+
+
+
+	  </div><!-- end grouper-->
+	  <div class="grouper">
+			
+		<div class="group" id="5_Configuration">
+			<h2>Configuration</h2>
+			<span>Configuration, administration, and tuning</span>
+		</div>
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Administration_User_Guide/index.html">Administration User Guide <span class='subtitle'>Administrating resources in a Red Hat Enterprise Linux OpenStack Platform environment</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Administration_User_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html-single/Administration_User_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/pdf/Administration_User_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Administration_User_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Cloud_Administrator_Guide/index.html">Cloud Administrator Guide <span class='subtitle'>Managing and troubleshooting a Red Hat Enterprise Linux OpenStack Platform environment</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Cloud_Administrator_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html-single/Cloud_Administrator_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/pdf/Cloud_Administrator_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Cloud_Administrator_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/End_User_Guide/index.html">End User Guide <span class='subtitle'>Creating and managing resources in a Red Hat Enterprise Linux OpenStack Platform environment</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/End_User_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html-single/End_User_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/epub/End_User_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-End_User_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/pdf/End_User_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-End_User_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1241813">Configure Load Balancing-as-a-Service (LBaaS) in OpenStack Networking <span class='subtitle'>Step-by-step guide to configuring OpenStack Networking to use LBaaS with either the Open vSwitch (OVS) or the Linux Bridge plug-in.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1247463">Converting VMware guests to Red Hat Enterprise Linux OpenStack Platform <span class='subtitle'>Use the virt-v2v command-line tool to retrieve, convert, and upload a VMware guest.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1249993">Launch a Red Hat Enterprise Linux 7 instance in OpenStack <span class='subtitle'>Launch an instance in OpenStack using a guest image.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1270363">Secure LDAP Communication for the Identity Service <span class='subtitle'>Provides three methods for securing LDAP communication using a CA certificate.</span></a>
+
+
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a class="external" href="https://access.redhat.com/articles/1229293">Choosing a Network Back-end for Red Hat Enterprise Linux OpenStack Platform <span class='subtitle'>Describes and provides guidance for selecting an OpenStack Networking (neutron) or OpenStack Compute Networking (nova) back end.</span></a>
+
+
+			</div>
+		</div>
+				
+
+
+
+
+	  </div><!-- end grouper-->
+	  <div class="grouper">
+			
+		<div class="group" id="5_Reference">
+			<h2>Reference</h2>
+			<span>Reference documentation to supplement guide usage</span>
+		</div>
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Command-Line_Interface_Reference_Guide/index.html">Command-Line Interface Reference Guide <span class='subtitle'>Command-line clients for the Red Hat Enterprise Linux OpenStack Platform</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Command-Line_Interface_Reference_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html-single/Command-Line_Interface_Reference_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/epub/Command-Line_Interface_Reference_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Command-Line_Interface_Reference_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/pdf/Command-Line_Interface_Reference_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Command-Line_Interface_Reference_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">
+    
+
+
+
+
+
+	
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Configuration_Reference_Guide/index.html">Configuration Reference Guide <span class='subtitle'>Configuring Red Hat Enterprise Linux OpenStack Platform environments</span></a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html/Configuration_Reference_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/html-single/Configuration_Reference_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/5/pdf/Configuration_Reference_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-5-Configuration_Reference_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	  </div> <!-- end grouper-->
+	</div>
+	<div id="4" class="bottom_versions hidden">
+	  <div class="grouper">
+          	
+				
+		<div class="bottom_books">
+			<div class="titles">			
+    
+
+
+
+
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/Technical_Notes/index.html">Technical Notes</a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/Technical_Notes/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html-single/Technical_Notes/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/epub/Technical_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-4-Technical_Notes-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/pdf/Technical_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-4-Technical_Notes-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">			
+    
+
+
+
+
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/Administration_User_Guide/index.html">Administration User Guide</a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/Administration_User_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html-single/Administration_User_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/epub/Administration_User_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-4-Administration_User_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/pdf/Administration_User_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-4-Administration_User_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">			
+    
+
+
+
+
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/Configuration_Reference_Guide/index.html">Configuration Reference Guide</a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/Configuration_Reference_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html-single/Configuration_Reference_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/epub/Configuration_Reference_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-4-Configuration_Reference_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/pdf/Configuration_Reference_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-4-Configuration_Reference_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">			
+    
+
+
+
+
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/End_User_Guide/index.html">End User Guide</a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/End_User_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html-single/End_User_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/epub/End_User_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-4-End_User_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/pdf/End_User_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-4-End_User_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">			
+    
+
+
+
+
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/Getting_Started_Guide/index.html">Getting Started Guide</a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/Getting_Started_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html-single/Getting_Started_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/epub/Getting_Started_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-4-Getting_Started_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/pdf/Getting_Started_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-4-Getting_Started_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">			
+    
+
+
+
+
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/Installation_and_Configuration_Guide/index.html">Installation and Configuration Guide</a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/Installation_and_Configuration_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html-single/Installation_and_Configuration_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/epub/Installation_and_Configuration_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-4-Installation_and_Configuration_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/pdf/Installation_and_Configuration_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-4-Installation_and_Configuration_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">			
+    
+
+
+
+
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/Release_Notes/index.html">Release Notes</a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html/Release_Notes/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/html-single/Release_Notes/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/epub/Release_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-4-Release_Notes-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/4/pdf/Release_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-4-Release_Notes-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	  </div> <!-- end grouper-->
+	</div>
+	<div id="3" class="bottom_versions hidden">
+	  <div class="grouper">
+          	
+				
+		<div class="bottom_books">
+			<div class="titles">			
+    
+
+
+
+
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html/Deployment_Guide_Foreman_Technology_Preview/index.html">Deployment Guide (Foreman Technology Preview)</a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html/Deployment_Guide_Foreman_Technology_Preview/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html-single/Deployment_Guide_Foreman_Technology_Preview/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/epub/Deployment_Guide_Foreman_Technology_Preview/Red_Hat_Enterprise_Linux_OpenStack_Platform-3-Deployment_Guide_Foreman_Technology_Preview-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/pdf/Deployment_Guide_Foreman_Technology_Preview/Red_Hat_Enterprise_Linux_OpenStack_Platform-3-Deployment_Guide_Foreman_Technology_Preview-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">			
+    
+
+
+
+
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html/Getting_Started_Guide/index.html">Getting Started Guide</a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html/Getting_Started_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html-single/Getting_Started_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/epub/Getting_Started_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-3-Getting_Started_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/pdf/Getting_Started_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-3-Getting_Started_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">			
+    
+
+
+
+
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html/Installation_and_Configuration_Guide/index.html">Installation and Configuration Guide</a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html/Installation_and_Configuration_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html-single/Installation_and_Configuration_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/epub/Installation_and_Configuration_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-3-Installation_and_Configuration_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/pdf/Installation_and_Configuration_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-3-Installation_and_Configuration_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">			
+    
+
+
+
+
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html/Release_Notes/index.html">Release Notes</a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html/Release_Notes/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html-single/Release_Notes/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/epub/Release_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-3-Release_Notes-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/pdf/Release_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-3-Release_Notes-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">			
+    
+
+
+
+
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html/Technical_Notes/index.html">Technical Notes</a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html/Technical_Notes/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/html-single/Technical_Notes/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/epub/Technical_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-3-Technical_Notes-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/3/pdf/Technical_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-3-Technical_Notes-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	  </div> <!-- end grouper-->
+	</div>
+	<div id="2" class="bottom_versions hidden">
+	  <div class="grouper">
+          	
+				
+		<div class="bottom_books">
+			<div class="titles">			
+    
+
+
+
+
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Getting_Started_Guide/index.html">Getting Started Guide</a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Getting_Started_Guide/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html-single/Getting_Started_Guide/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/epub/Getting_Started_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-2-Getting_Started_Guide-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/pdf/Getting_Started_Guide/Red_Hat_Enterprise_Linux_OpenStack_Platform-2-Getting_Started_Guide-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+				
+		<div class="bottom_books">
+			<div class="titles">			
+    
+
+
+
+
+
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Release_Notes/index.html">Release Notes</a>
+
+
+			</div> 			<div class="formats">
+				<div class="dropdown">
+					<a data-toggle="dropdown" href="#" class="btn btn-small btn-cog"><span class="icon-caret-down"></span> <span class="icon-cog"></span></a>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Release_Notes/index.html">HTML (Recommended)</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html-single/Release_Notes/index.html">Single-page HTML</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/epub/Release_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-2-Release_Notes-en-US.epub">EPUB</a>
+
+
+						</li>
+						<li>    
+
+
+        <a href="/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/pdf/Release_Notes/Red_Hat_Enterprise_Linux_OpenStack_Platform-2-Release_Notes-en-US.pdf">PDF</a>
+
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	  </div> <!-- end grouper-->
+	</div>
+
+	</div>
+</div>
+</div><!--close wrappers-->
+
+</body>
+</html>
+

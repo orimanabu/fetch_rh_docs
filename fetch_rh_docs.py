@@ -136,7 +136,7 @@ def main():
 
     for url, title in product_urls:
         print "# %s: %s" % (title, url)
-        content = fetch_top_page(session, args.url)
+        content = fetch_top_page(session, url)
         #print content
 
         if args.pdf:

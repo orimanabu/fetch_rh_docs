@@ -184,7 +184,7 @@ def main():
                 #x = xattr.xattr(fname)
                 #x['fetch_rh_docs.py:downloaded_from'] = url
                 #xattr.set(fname, 'fetch_rh_docs.py:downloaded_from', url)
-                xattr.set(fname, 'user.comment', url)
+                xattr.setxattr(fname, 'user.comment', url)
 
         if args.kb:
             print "## kb"

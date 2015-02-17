@@ -62,7 +62,7 @@ $ ./fetch_rh_docs.py -u USERNAME --pdf --includes '\/5\/' --includes 'Cluster' -
 ```
 
 # Depends
-* Python libraries: [lxml](http://lxml.de/), [keyring](https://pypi.python.org/pypi/keyring)
+* Python libraries: [lxml](http://lxml.de/), [keyring](https://pypi.python.org/pypi/keyring), [pyxattr](http://pyxattr.k1024.org/) for Linux or [xattr](http://github.com/xattr/xattr) for Mac OS X
 * HTML to PDF converter: [wkhtmltopdf](http://wkhtmltopdf.org)
 
 # Tested Environments

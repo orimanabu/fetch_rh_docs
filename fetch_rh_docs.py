@@ -20,22 +20,30 @@ def fetch_top_page(session, url):
     res = session.get(url)
     return res.content
 
-def parse_pdf_urls(content, filters):
+def parse_pdf_urls(content, include_regexp, exclude_regexp):
     tree = html.fromstring(content)
     urls = [elem.attrib['href'].strip().replace('/site', 'https://access.redhat.com') for elem in tree.xpath('//a[.="PDF"]')]
-    if filters:
-        for f in filters:
+    if include_regexp:
+        for f in include_regexp:
             ro = re.compile(f)
             urls = [url for url in urls if ro.search(url)]
+    if exclude_regexp:
+        for f in exclude_regexp:
+            ro = re.compile(f)
+            urls = [url for url in urls if not ro.search(url)]
     return urls
 
-def parse_kb_urls(content, filters):
+def parse_kb_urls(content, include_regexp, exclude_regexp):
     tree = html.fromstring(content)
     urls = [elem.attrib['href'].strip() for elem in tree.xpath('//a[@class="external"]')]
-    if filters:
-        for f in filters:
+    if include_regexp:
+        for f in include_regexp:
             ro = re.compile(f)
             urls = [url for url in urls if ro.search(url)]
+    if exclude_regexp:
+        for f in exclude_regexp:
+            ro = re.compile(f)
+            urls = [url for url in urls if not ro.search(url)]
     return urls
 
 def fetch_kb_content(session, url, username, password):
@@ -107,7 +115,9 @@ Detailed options -h or --help'''.format(__file__)
     #parser.add_argument('-S', '--single-html', action='store_true', dest='single_html', help='download single html files')
     parser.add_argument('-k', '--kb', action='store_true', dest='kb', help='download kb')
     parser.add_argument('-c', '--convert-to-pdf', action='store_true', dest='convert_to_pdf', help='convert html to pdf, use with --kb')
-    parser.add_argument('-f', '--filter', action='append', dest='filter', help='regexp to filter url.')
+    #parser.add_argument('-f', '--filter', action='append', dest='filter', help='regexp to filter url.')
+    parser.add_argument('-i', '--includes', action='append', dest='includes', help='regexp to filter url.')
+    parser.add_argument('-e', '--excludes', action='append', dest='excludes', help='negative regexp to filter url.')
     parser.add_argument('--all-products', action='store_true', dest='all_products', help='traverse all products')
     parser.add_argument('--mkdir-per-product', action='store_true', dest='mkdir_per_product', help='create directory for each product, use with --all-products')
     parser.add_argument('url', nargs='?')
@@ -124,7 +134,9 @@ Detailed options -h or --help'''.format(__file__)
     #print "(debug) %s: %s" % ('single_html', args.single_html)
     print "(debug) %s: %s" % ('kb', args.kb)
     print "(debug) %s: %s" % ('convert_to_pdf', args.convert_to_pdf)
-    print "(debug) %s: %s" % ('filter', args.filter)
+    #print "(debug) %s: %s" % ('filter', args.filter)
+    print "(debug) %s: %s" % ('includes', args.includes)
+    print "(debug) %s: %s" % ('excludes', args.excludes)
     print "(debug) %s: %s" % ('all_products', args.all_products)
     print "(debug) %s: %s" % ('mkdir_per_product', args.mkdir_per_product)
     print "(debug) %s: %s" % ('url', args.url)
@@ -149,7 +161,7 @@ def main():
 
         if args.pdf:
             print "## pdf"
-            for url in parse_pdf_urls(content, args.filter):
+            for url in parse_pdf_urls(content, args.includes, args.excludes):
                 print url
                 if args.list_only:
                     continue
@@ -163,7 +175,7 @@ def main():
 
         if args.kb:
             print "## kb"
-            for url in parse_kb_urls(content, args.filter):
+            for url in parse_kb_urls(content, args.includes, args.excludes):
                 print url
                 if args.list_only:
                     continue

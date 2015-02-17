@@ -109,6 +109,7 @@ Detailed options -h or --help'''.format(__file__)
     parser.add_argument('-c', '--convert-to-pdf', action='store_true', dest='convert_to_pdf', help='convert html to pdf')
     parser.add_argument('-f', '--filter', action='append', dest='filter', help='regexp to filter url.')
     parser.add_argument('--all-products', action='store_true', dest='all_products', help='traverse all products')
+    parser.add_argument('--mkdir-per-product', action='store_true', dest='mkdir_per_product', help='create directory for each product, use with --all-products')
     parser.add_argument('url', nargs='?')
     args = parser.parse_args()
     if args.all_products is True:
@@ -125,6 +126,7 @@ Detailed options -h or --help'''.format(__file__)
     print "(debug) %s: %s" % ('convert_to_pdf', args.convert_to_pdf)
     print "(debug) %s: %s" % ('filter', args.filter)
     print "(debug) %s: %s" % ('all_products', args.all_products)
+    print "(debug) %s: %s" % ('mkdir_per_product', args.mkdir_per_product)
     print "(debug) %s: %s" % ('url', args.url)
     return args
 
@@ -139,6 +141,9 @@ def main():
 
     for url, title in product_urls:
         print "# %s: %s" % (title, url)
+        if args.mkdir_per_product:
+            cmd = "mkdir -p '%s'" % title
+            subprocess.call(cmd, shell=True)
         content = fetch_top_page(session, url)
         #print content
 
@@ -149,7 +154,10 @@ def main():
                 if args.list_only:
                     continue
                 print "  * Downloading..."
-                cmd = "/usr/bin/curl -O '%s' > /dev/null 2>&1" % url
+                cmd = "/usr/bin/curl -O '%s'" % url
+                if args.mkdir_per_product:
+                    cmd = "cd '%s' && %s" % (title, cmd)
+                cmd = "%s > /dev/null 2>&1" % cmd
                 #print "      ", cmd
                 subprocess.call(cmd, shell=True)
 

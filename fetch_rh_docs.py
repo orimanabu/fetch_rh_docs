@@ -10,6 +10,7 @@ from getpass import getpass
 from lxml import html
 from pprint import pprint
 import keyring
+import xattr
 
 product_index = 'https://docs.redhat.com/'
 product_page_url_prefix = 'https://access.redhat.com/documentation/'
@@ -176,6 +177,12 @@ def main():
                 cmd = "%s > /dev/null 2>&1" % cmd
                 #print "      ", cmd
                 subprocess.call(cmd, shell=True)
+                fname = re.sub(r'^.*/', '', url)
+                if args.create_dir:
+                    fname = title + '/' + fname
+                #print "***", fname
+                x = xattr.xattr(fname)
+                x['fetch_rh_docs.py:downloaded_from'] = url
 
         if args.kb:
             print "## kb"

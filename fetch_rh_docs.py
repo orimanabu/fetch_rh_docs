@@ -181,8 +181,10 @@ def main():
                 if args.create_dir:
                     fname = title + '/' + fname
                 #print "***", fname
-                x = xattr.xattr(fname)
-                x['fetch_rh_docs.py:downloaded_from'] = url
+                #x = xattr.xattr(fname)
+                #x['fetch_rh_docs.py:downloaded_from'] = url
+                #xattr.set(fname, 'fetch_rh_docs.py:downloaded_from', url)
+                xattr.set(fname, 'user.comment', url)
 
         if args.kb:
             print "## kb"

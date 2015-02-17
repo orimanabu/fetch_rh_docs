@@ -16,8 +16,8 @@ To download all PDF documents of all products, "--all-products" options is usefu
 $ ./fetch_rh_docs.py -u USERNAME --all-products --pdf
 ```
 
-USERNAME is your Red Hat Network / Customer Portal account.
-You might be prompted to input password of the account when you try to download contents which require to login to Customer Portal.
+Some contents require to login to Red Hat Network / Customer Portal account and you will be prompted if you try to get the contents.
+You can also pass your Customer Portal account name with "-u USERNAME" command line option.
 
 Once you input your password, it is stored in Python Keyring fascility.
 That is, the password would be stored in *Gnome Keyring* on Linux Desktop or *Keychain Access.app* on Mac OS X.

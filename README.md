@@ -3,7 +3,8 @@ This script fetches documents in Red Hat product pages.
 You can find a list of documents for Red Hat products in https://docs.redhat.com/
 .
 
-In this README, "http://docs.redhat.com/", in which links to all products documents are listed is called as *Product index*, and pages linked from Product index, for example "https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/", are called as *Product page*.
+In this README, "http://docs.redhat.com/", which includes links to all products documents, is called *Product index*.
+Pages linked from Product index, for example "https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/", are called *Product page*.
 
 <!-- #_ -->
 
@@ -21,7 +22,7 @@ You will be prompted to input user name and password of your Customer Portal acc
 You can also pass your Customer Portal account name with "-u USERNAME" command line option.
 
 Once you input your password, it is stored in Python Keyring fascility.
-That is, the password would be stored in *Gnome Keyring* on Linux Desktop or *Keychain Access.app* on Mac OS X.
+That is, the password would be stored in *Gnome Keyring* on Linux Desktop or *Keychain Service* on Mac OS X.
 
 ## Basic use case #2
 To download all PDF documents of a products, append URL of product page to the end of the command.

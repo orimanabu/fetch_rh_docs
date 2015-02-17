@@ -51,12 +51,12 @@ $ ./fetch_rh_docs.py -u USERNAME --pdf --kb --list https://access.redhat.com/doc
 ```
 
 ## URL filtering
-If you filter URLs with regular expressions, use "--filter *REGEXP*" option. You can add this option multiple times.
+If you filter URLs with regular expressions, use "--includes *REGEXP*" and/or "--excludes *REGEXP*" option. You can add these options multiple times.
 
-E.g. To get 'Cluster' related manuals of RHEL5, run the script like this:
+E.g. To get 'Cluster' related manuals of RHEL5 but want to exclude 'Oracle' related ones, run the script like this:
 
 ```
-$ ./fetch_rh_docs.py -u USERNAME --pdf --filter '\/5\/' --filter 'Cluster' https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/
+$ ./fetch_rh_docs.py -u USERNAME --pdf --includes '\/5\/' --includes 'Cluster' --excludes 'Oracle' https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/
 ```
 
 # Depends

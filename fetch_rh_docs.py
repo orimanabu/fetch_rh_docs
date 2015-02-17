@@ -111,6 +111,8 @@ Detailed options -h or --help'''.format(__file__)
     parser.add_argument('--all-products', action='store_true', dest='all_products', help='traverse all products')
     parser.add_argument('url', nargs='?')
     args = parser.parse_args()
+    if args.all_products is True:
+        args.url = product_index
     if args.url is None:
         args.url = top_url
     print "(debug) %s: %s" % ('username', args.username)

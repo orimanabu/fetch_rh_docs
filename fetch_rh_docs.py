@@ -146,10 +146,14 @@ def main():
     args = parse_args()
     session = requests.Session()
 
-    if args.all_products:
-        product_urls = get_all_product_urls(session, product_index)
-    else:
-        product_urls = [(args.url, '(specified in command line)')]
+    product_urls = get_all_product_urls(session, product_index)
+    if not args.all_products:
+        title = '(specified in command line)'
+        for u, t in product_urls:
+            if u == args.url:
+                title = t
+                break
+        product_urls = [(args.url, title)]
 
     for url, title in product_urls:
         print "# %s: %s" % (title, url)

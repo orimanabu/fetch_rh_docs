@@ -12,6 +12,7 @@ from pprint import pprint
 import keyring
 
 product_index = 'http://docs.redhat.com/'
+product_page_url_prefix = 'http://access.redhat.com/documentation/'
 top_url = 'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/'
 top_url = 'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/'
 
@@ -92,7 +93,7 @@ def fetch_kb_content(session, url, username, password):
 def get_all_product_urls(session, product_index):
     res = session.get(product_index)
     tree = html.fromstring(res.content)
-    return [(elem.attrib['href'], elem.text) for elem in tree.xpath('//h3[@class="headerAccent"]/../ul/li/a')]
+    return [(elem.attrib['href'].replace('../', product_page_url_prefix), elem.text) for elem in tree.xpath('//h3[@class="headerAccent"]/../ul/li/a')]
 
 def parse_args():
     desc = u'''{0} [Args] [Options]

@@ -119,7 +119,7 @@ Detailed options -h or --help'''.format(__file__)
     parser.add_argument('-i', '--includes', action='append', dest='includes', help='regexp to filter url.')
     parser.add_argument('-e', '--excludes', action='append', dest='excludes', help='negative regexp to filter url.')
     parser.add_argument('--all-products', action='store_true', dest='all_products', help='traverse all products')
-    parser.add_argument('--mkdir-per-product', action='store_true', dest='mkdir_per_product', help='create directory for each product, use with --all-products')
+    parser.add_argument('--create-dir', action='store_true', dest='create_dir', help='create directory for each product, use with --all-products')
     parser.add_argument('url', nargs='?')
     args = parser.parse_args()
     if args.all_products is True:
@@ -138,7 +138,7 @@ Detailed options -h or --help'''.format(__file__)
     print "(debug) %s: %s" % ('includes', args.includes)
     print "(debug) %s: %s" % ('excludes', args.excludes)
     print "(debug) %s: %s" % ('all_products', args.all_products)
-    print "(debug) %s: %s" % ('mkdir_per_product', args.mkdir_per_product)
+    print "(debug) %s: %s" % ('create_dir', args.create_dir)
     print "(debug) %s: %s" % ('url', args.url)
     return args
 
@@ -157,7 +157,7 @@ def main():
 
     for url, title in product_urls:
         print "# %s: %s" % (title, url)
-        if args.mkdir_per_product:
+        if args.create_dir:
             cmd = "mkdir -p '%s'" % title
             subprocess.call(cmd, shell=True)
         content = fetch_top_page(session, url)
@@ -171,7 +171,7 @@ def main():
                     continue
                 print "  * Downloading..."
                 cmd = "/usr/bin/curl -O '%s'" % url
-                if args.mkdir_per_product:
+                if args.create_dir:
                     cmd = "cd '%s' && %s" % (title, cmd)
                 cmd = "%s > /dev/null 2>&1" % cmd
                 #print "      ", cmd

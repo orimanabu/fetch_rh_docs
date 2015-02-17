@@ -2,13 +2,18 @@
 This script fetches documents in Red Hat product pages.
 You can find a list of documents for Red Hat products in https://docs.redhat.com/
 .
+
+In this README, "http://docs.redhat.com/", in which links to all products documents are listed is called as *Product index*, and pages linked from Product index, for example "https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/", are called as *Product page*.
+
+<!-- #_ -->
+
 # How to use
 
-## Basic use case
-To download all the documents of RHEL in PDF format:
+## Basic use case #1
+To download all PDF documents of all products, "--all-products" options is useful.
 
 ```
-$ ./fetch_rh_docs.py -u USERNAME --pdf https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/
+$ ./fetch_rh_docs.py -u USERNAME --all-products --pdf
 ```
 
 USERNAME is your Red Hat Network / Customer Portal account.
@@ -17,15 +22,23 @@ You might be prompted to input password of the account when you try to download 
 Once you input your password, it is stored in Python Keyring fascility.
 That is, the password would be stored in *Gnome Keyring* on Linux Desktop or *Keychain Access.app* on Mac OS X.
 
+## Basic use case #2
+To download all PDF documents of a products, append URL of product page to the end of the command.
+For example for RHEL,
+
+```
+$ ./fetch_rh_docs.py -u USERNAME --pdf https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/
+```
+
 ## Only listing URLs
-If you don't want to download documents but only want to get the URL list, add "--list" option.
+If you don't want to download documents actually but only want to know the URL list of PDF files, add "--list" option.
 
 ```
 $ ./fetch_rh_docs.py -u USERNAME --pdf --list https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/
 ```
 
 ## Getting Knowledge Base
-Some products have links to Knowledge Base pages. If you get URLs of the KB pages, use "--kb" option.
+Some products have links to Knowledge Base in their product page. If you get URLs of the KB, use "--kb" option.
 
 ```
 $ ./fetch_rh_docs.py -u USERNAME --kb --list https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/

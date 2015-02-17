@@ -11,8 +11,8 @@ from lxml import html
 from pprint import pprint
 import keyring
 
-product_index = 'http://docs.redhat.com/'
-product_page_url_prefix = 'http://access.redhat.com/documentation/'
+product_index = 'https://docs.redhat.com/'
+product_page_url_prefix = 'https://access.redhat.com/documentation/'
 top_url = 'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/'
 top_url = 'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/'
 

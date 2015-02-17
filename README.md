@@ -3,7 +3,7 @@ This script fetches documents in Red Hat product pages.
 You can find a list of documents for Red Hat products in https://docs.redhat.com/
 .
 
-In this README, "http://docs.redhat.com/", which includes links to all products documents, is called *Product index*.
+In this README, "https://docs.redhat.com/", which includes links to all products documents, is called *Product index*.
 Pages linked from Product index, for example "https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/", are called *Product page*.
 
 <!-- #_ -->

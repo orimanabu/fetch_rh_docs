@@ -168,6 +168,9 @@ def main():
             print "## pdf"
             for url in parse_pdf_urls(content, args.includes, args.excludes):
                 print url
+                fname = re.sub(r'^.*/', '', url)
+                if args.create_dir:
+                    fname = title + '/' + fname
                 if args.list_only:
                     continue
                 print "  * Downloading..."
@@ -177,9 +180,6 @@ def main():
                 cmd = "%s > /dev/null 2>&1" % cmd
                 #print "      ", cmd
                 subprocess.call(cmd, shell=True)
-                fname = re.sub(r'^.*/', '', url)
-                if args.create_dir:
-                    fname = title + '/' + fname
                 #print "***", fname
                 #x = xattr.xattr(fname)
                 #x['fetch_rh_docs.py:downloaded_from'] = url

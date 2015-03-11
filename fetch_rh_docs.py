@@ -105,6 +105,30 @@ def get_all_product_urls(session, product_index):
     tree = html.fromstring(res.content)
     return [(elem.attrib['href'].replace('../', product_page_url_prefix), elem.text) for elem in tree.xpath('//h3[@class="headerAccent"]/../ul/li/a')]
 
+def find_command_path(convert_to_pdf):
+    command_path = { 'curl': '' }
+    if convert_to_pdf: command_path['wkhtmltopdf'] = ''
+
+    for cmd in command_path.keys():
+        path = get_command_path(cmd)
+        if not path:
+            print 'Command not found: %s'
+            sys.exit(1)
+        command_path[cmd] = path
+
+    print 'Commands used in this script are:'
+    for cmd in command_path.keys():
+        print '  ', command_path[cmd]
+    return command_path
+
+def get_command_path(cmd):
+    path = ''
+    for d in os.environ['PATH'].split(':'):
+        path = d + '/' + cmd
+        if os.path.exists(path):
+            break
+    return path
+
 def parse_args():
     desc = u'''{0} [Args] [Options]
 Detailed options -h or --help'''.format(__file__)
@@ -149,6 +173,7 @@ Detailed options -h or --help'''.format(__file__)
 def main():
     args = parse_args()
     session = requests.Session()
+    command_path = find_command_path(args.convert_to_pdf)
 
     product_urls = get_all_product_urls(session, product_index)
     if not args.all_products:
@@ -181,7 +206,7 @@ def main():
                         print "  * File '%s' exists, skipping..." % fname
                         continue
                 print "  * Downloading..."
-                cmd = "/usr/bin/curl -O '%s'" % url
+                cmd = command_path['curl'] + " -O '%s'" % url
                 if args.create_dir:
                     cmd = "cd '%s' && %s" % (title, cmd)
                 cmd = "%s > /dev/null 2>&1" % cmd
@@ -212,7 +237,7 @@ def main():
                 f.close()
                 if args.convert_to_pdf:
                     print "  * Converting to pdf..."
-                    cmd = "/usr/local/bin/wkhtmltopdf --load-error-handling ignore --load-media-error-handling ignore --disable-external-links '%s' '%s' > /dev/null 2>&1" % (title + '.html', title + '.pdf')
+                    cmd = command_path['wkhtmltopdf'] + " --load-error-handling ignore --load-media-error-handling ignore --disable-external-links '%s' '%s' > /dev/null 2>&1" % (title + '.html', title + '.pdf')
                     #subprocess.call(cmd.strip().split(" "))
                     #print "      ", cmd
                     subprocess.call(cmd, shell=True)
